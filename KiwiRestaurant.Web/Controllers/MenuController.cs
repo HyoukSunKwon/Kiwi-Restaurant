@@ -28,10 +28,7 @@ namespace KiwiRestaurant.Web.Controllers
         public ActionResult Details(int id)
         {
             var model = db.Get(id);
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}    
+              
             if ( model == null)
             {
                 return HttpNotFound();
@@ -39,21 +36,28 @@ namespace KiwiRestaurant.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         //[Authorize(Roles = "Coordinator")]
         public ActionResult Delete(int id) 
         {
             var model = db.Get(id);
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-
+           
             if ( model == null)
             {
                 return HttpNotFound();
             }
             return View(model);
         }
+
+        [HttpPost]
+        //[Authorize(Roles = "Coordinator")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, FormCollection form)
+        {
+            db.Delete(id);   
+            return RedirectToAction("Index");
+        }
+
 
         [HttpGet]
         //[Authorize(Roles = "Coordinator")]

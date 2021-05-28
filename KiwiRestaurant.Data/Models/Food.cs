@@ -22,11 +22,11 @@ namespace KiwiRestaurant.Data.Models
         [Required]
         public float Price { get; set; }
 
-        [DisplayName("Type")]
+        [DisplayName("Type of Food")]
         [Required]
         public FoodType FoodType { get; set; }
 
-        [DisplayName("Image")]
+        [DisplayName("Image of Food")]
         //[Required]
         public string FoodImg { get; set; }
 

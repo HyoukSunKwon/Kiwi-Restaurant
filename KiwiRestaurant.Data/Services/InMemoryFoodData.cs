@@ -26,6 +26,15 @@ namespace KiwiRestaurant.Data.Services
             food.Id = foods.Max(f => f.Id) + 1;
         }
 
+        public void Delete(int id)
+        {
+            var foodDelete = Get(id);
+            if (foodDelete != null)
+            {
+                foods.Remove(foodDelete);
+            }
+        }
+
         public Food Get(int id)
         {
             return foods.FirstOrDefault(f => f.Id == id);

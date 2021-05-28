@@ -13,8 +13,7 @@ namespace KiwiRestaurant.Data.Services
         Food Get(int id);
         void Update(Food food);
         void Add(Food food);
-
-
+        void Delete(int id);
     }
 
 
