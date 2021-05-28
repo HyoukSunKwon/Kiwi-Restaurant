@@ -29,5 +29,7 @@ namespace KiwiRestaurant.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<KiwiRestaurant.Data.Models.Food> Foods { get; set; }
     }
 }

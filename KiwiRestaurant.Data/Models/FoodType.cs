@@ -8,6 +8,7 @@ namespace KiwiRestaurant.Data.Models
 {
    public  enum FoodType
     {
+        None,
         Pizza,
         Pasta,
         Drink,

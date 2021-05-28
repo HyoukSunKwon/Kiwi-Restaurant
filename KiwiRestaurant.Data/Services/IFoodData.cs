@@ -10,6 +10,11 @@ namespace KiwiRestaurant.Data.Services
     public interface IFoodData
     {
         IEnumerable<Food> GetAll();
+        Food Get(int id);
+        void Update(Food food);
+        void Add(Food food);
+
+
     }
 
 
