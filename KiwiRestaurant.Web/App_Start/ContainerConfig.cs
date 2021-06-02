@@ -15,9 +15,10 @@ namespace KiwiRestaurant.Web
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterType<InMemoryFoodData>()
+            builder.RegisterType<SqlFoodData>()
                    .As<IFoodData>()
-                   .SingleInstance();
+                   .InstancePerRequest();
+            builder.RegisterType<FoodDbContext>().InstancePerRequest();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
